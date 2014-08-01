@@ -1,4 +1,3 @@
-
 function changeButtonText(likeDislikeButton) {
 
     var likeDislike = document.getElementById('likeDislikeButton');
