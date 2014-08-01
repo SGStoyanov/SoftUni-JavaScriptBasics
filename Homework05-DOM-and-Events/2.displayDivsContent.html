@@ -1,0 +1,33 @@
+<html>
+<body>
+
+    <div>first div</div>
+    <div>second div</div>
+    <div class="empty"></div>
+    <div>
+        third div
+        <div>inner div</div>
+    </div>
+    <ul id="result"></ul>
+
+        <script>
+            (function () {
+                var divs = document.querySelectorAll('div');
+                var result = document.getElementById('result');
+
+                var fragment = document.createDocumentFragment();
+                var liModel = document.createElement('li');
+
+                for (var div in divs) {
+                    if (divs[div] instanceof HTMLDivElement && !(divs[div].classList.contains('empty'))) {
+                        var currentLi = liModel.cloneNode(true);
+                        currentLi.textContent = divs[div].innerText;
+                        fragment.appendChild(currentLi);
+                    }
+                }
+                result.appendChild(fragment);
+            }());
+        </script>
+
+</body>
+</html>
